@@ -1,0 +1,22 @@
+int truckTour(int petrolpumps_rows, int petrolpumps_columns, int petrolpumps[3][2]) {
+    int start_index = 0; // Starting petrol pump index
+    int current_petrol = 0; // Current petrol in the truck
+    int total_petrol_shortage = 0; // Total petrol shortage encountered so far
+
+    for (int i = 0; i < petrolpumps_rows; i++) {
+        int petrol = petrolpumps[i][0];
+        int distance = petrolpumps[i][1];
+        // Update current petrol
+        current_petrol += petrol - distance;
+              // If current petrol becomes negative, reset start index and petrol
+        if (current_petrol < 0) {
+            start_index = i + 1;
+            current_petrol = 0;
+            total_petrol_shortage = 0;
+        } else {
+            total_petrol_shortage += petrol - distance;
+        }
+    }
+
+    return (total_petrol_shortage >= 0) ? start_index : -1;
+}
