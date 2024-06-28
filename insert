@@ -1,0 +1,26 @@
+
+void insert_at_pos() {
+    node *new node, *temp;
+    int pos, node ctr, ctr = 1;
+    new node = get node();
+    printf("\n Enter the position: ");
+    scanf ("%d", &pos);
+    node ctr = count node(start);
+    if (pos < 1 || pos > node ctr + 1) {
+        printf("Position %d is invalid\n", pos);
+        free(new node);
+        return;
+    }
+    if (pos == 1) { // Insert at the beginning
+        new node->next = start;
+        start = new node;
+    } else {
+        temp = start;
+        while (ctr < pos - 1) {
+            temp = temp->next;
+            ctr++;
+        }
+        new node->next = temp->next;
+        temp->next = new node;
+    }
+}
