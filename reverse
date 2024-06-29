@@ -1,0 +1,7 @@
+void print_reverse(Node* head) {
+    if (head == NULL) {
+        return;
+    }
+    print_reverse(head->next);
+    printf("%d ", head->data);
+}
