@@ -1,0 +1,6 @@
+int getheight(struct node *root){
+ if (root==NULL)
+ return -1;
+
+return 1+fmax(getheight(root->left),getheight(root->right));
+}
