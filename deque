@@ -1,0 +1,13 @@
+void enqueue(int x){
+    if(front==-1 && rear==-1){
+        front++;
+        rear++;
+        a[front]=x;
+    }
+    else if((front==0 && rear==size-1) || front==rear+1)
+        printf("Queue full \n");
+    else if(rear==size-1)
+        rear=-1;
+    else
+        a[++rear]=x;
+}
